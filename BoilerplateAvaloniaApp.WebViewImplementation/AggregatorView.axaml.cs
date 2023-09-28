@@ -29,25 +29,48 @@ public partial class AggregatorView : UserControl {
     }
 
     private void OnNewDialogClick(object sender, RoutedEventArgs e) {
-        var w = new Window { Width = 200, Height = 200 };
+        var w = new Window {
+            Width = 500,
+            Height = 300
+        };
         w.Show(this.GetVisualRoot() as Window);
     }
 
     private void OnNewModalDialogClick(object sender, RoutedEventArgs e) {
-        var w = new Window { Width = 200, Height = 200 };
+        var w = new Window {
+            Width = 500,
+            Height = 300
+        };
         w.ShowDialog(this.GetVisualRoot() as Window);
     }
 
     private void OnNewStandaloneDialogClick(object sender, RoutedEventArgs e) {
-        var w = new Window { Width = 200, Height = 200 };
-        w.ExtendClientAreaChromeHints = ExtendClientAreaChromeHints.PreferSystemChrome;
-        w.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-        w.ShowActivated = true;
+        var w = new Window {
+            Width = 500,
+            Height = 300,
+            ExtendClientAreaChromeHints = ExtendClientAreaChromeHints.PreferSystemChrome,
+            WindowStartupLocation = WindowStartupLocation.CenterScreen,
+            ShowActivated = true
+        };
         w.Show();
     }
 
     private void OnNewAggregatorWindowClick(object sender, RoutedEventArgs e) {
-        var w = new AggregatorWindow();
-        w.Show();
+        var currentAggregatorWindow = (AggregatorWindow)this.GetVisualRoot();
+
+        var height = currentAggregatorWindow.Height is not double.NaN
+            ? currentAggregatorWindow.Height
+            : currentAggregatorWindow.Bounds.Height;
+        var width = currentAggregatorWindow.Width is not double.NaN
+            ? currentAggregatorWindow.Width
+            : currentAggregatorWindow.Bounds.Width;
+
+        var newAggregatorWindow = new AggregatorWindow {
+            Height = height,
+            Width = width,
+            Position = currentAggregatorWindow.Position
+        };
+
+        newAggregatorWindow.Show();
     }
 }
