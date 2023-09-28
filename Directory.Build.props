@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+    <PropertyGroup>
+        <PackageOutputPath>$(MSBuildProjectDirectory)\..\Nuget\output</PackageOutputPath>
+        <Product>BoilerplateAvaloniaApp</Product>
+        <AssemblyTitle>BoilerplateAvaloniaApp</AssemblyTitle>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageVersion Include="Avalonia.Desktop" Version="0.10.999-cibuild0039535-beta" />
+        <PackageVersion Include="CefGlue.Avalonia" Version="91.4472.31" />
+    </ItemGroup>
+
+</Project>

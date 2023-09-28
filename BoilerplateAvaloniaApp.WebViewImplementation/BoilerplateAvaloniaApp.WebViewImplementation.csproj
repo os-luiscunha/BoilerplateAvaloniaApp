@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Update="AggregatorView.axaml.cs">
+        <DependentUpon>AggregatorView.axaml</DependentUpon>
+      </Compile>
+      <Compile Update="AggregatorWindow.axaml.cs">
+        <DependentUpon>AggregatorWindow.axaml</DependentUpon>
+      </Compile>
+      <Compile Update="App.axaml.cs">
+        <DependentUpon>App.axaml</DependentUpon>
+      </Compile>
+      <Compile Update="Themes\DarkTheme.axaml.cs">
+        <DependentUpon>DarkTheme.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Themes\LightTheme.axaml.cs">
+        <DependentUpon>LightTheme.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Avalonia.Desktop" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BoilerplateAvaloniaApp.Presenter\BoilerplateAvaloniaApp.Presenter.csproj" />
+      <ProjectReference Include="..\BoilerplateAvaloniaApp.View\BoilerplateAvaloniaApp.View.csproj" />
+      <ProjectReference Include="..\BoilerplateAvaloniaApp.WebViewImplementation.Framework\BoilerplateAvaloniaApp.WebViewImplementation.Framework.csproj" />
+    </ItemGroup>
+
+</Project>
